@@ -4,15 +4,45 @@ void Display::PrintException(std::exception& e) const {
     std::cerr << "\033[1;31m" <<  "Exception: " << e.what() << "\033[0m" << std::endl;
 }
 
-void Display::printAbilityName(Abilities name) const {
-    if (name == Abilities::DoubleDamage) {
-        std::cout << "Double Damage" << std::endl;   
-    } else if (name == Abilities::Scanner) {
-        std::cout << "Scanner" << std::endl;
-    } else {
-        std::cout << "Shelling" << std::endl;
+void Display::printAbilityName(std::string name) const {
+    std::cout << name << std::endl;
+}
+
+void Display::printAbilityNames(AbilityManager abilityManager) const {
+    for (int i = 0; i < abilityManager.GetAbilCount(); i++) {
+        std::cout << abilityManager.getCreator(i).getTitle() << std::endl;
     }
 }
+
+void Display::printString(std::string data) const {
+    std::cout << data << std::endl;
+}
+
+
+void Display::printShip(Ship ship) const {
+    std::cout << "length: " << ship.getLength()  << std::endl;
+    if (ship.CheckPosture()) {
+        std::cout << "orientation: horizontal" << std::endl;
+    } else {
+        std::cout << "orientation: vertical" << std::endl;
+    }
+    std::cout << "Param health:" << std::endl;
+
+    for (int i = 0; i < ship.getLength(); i++) {
+        switch(ship.getParams(i)->health) {
+            case HealthPosition::Fullhp:
+                std::cout << "Untouched" << std::endl;
+                break;
+            case HealthPosition::Onehp:
+                std::cout << "Damaged" << std::endl;
+                break;
+            case HealthPosition::Destroyed:
+                std::cout << "Destroyed" << std::endl;
+                break;
+        }    
+    }
+}
+
 
 void Display::printPointState(Map self, Coord coord) const {
     switch (self.GetMap()[coord.y*self.GetRows() + coord.x].state) {
@@ -140,4 +170,12 @@ void Display::printMaps(Map self, Map other) const {
         std::cout << "\033[30m" << "+" << std::endl;
     }
     std::cout << "\033[0m" << std::endl;
+}
+
+void Display::printInfo() const {
+    std::cout << "Push i to print info, a to attack, b to use ability, l to load, s to save, q to quit." << std::endl;
+}
+
+void Display::printCoordNeeded() const {
+    std::cout << "Input coordinate." << std::endl;
 }

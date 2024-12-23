@@ -1,0 +1,1545 @@
+{
+    "data": {
+        "AbilityUsed": false,
+        "botMap": {
+            "cols": 10,
+            "point00": {
+                "owner": 1,
+                "state": 83,
+                "x": 0,
+                "y": 0
+            },
+            "point01": {
+                "owner": 1,
+                "state": 83,
+                "x": 0,
+                "y": 1
+            },
+            "point02": {
+                "owner": 1,
+                "state": 83,
+                "x": 0,
+                "y": 2
+            },
+            "point03": {
+                "owner": 1,
+                "state": 42,
+                "x": 0,
+                "y": 3
+            },
+            "point04": {
+                "owner": 1,
+                "state": 83,
+                "x": 0,
+                "y": 4
+            },
+            "point05": {
+                "owner": 1,
+                "state": 126,
+                "x": 0,
+                "y": 5
+            },
+            "point06": {
+                "owner": 1,
+                "state": 42,
+                "x": 0,
+                "y": 6
+            },
+            "point07": {
+                "owner": 1,
+                "state": 42,
+                "x": 0,
+                "y": 7
+            },
+            "point08": {
+                "owner": 1,
+                "state": 83,
+                "x": 0,
+                "y": 8
+            },
+            "point09": {
+                "owner": 1,
+                "state": 83,
+                "x": 0,
+                "y": 9
+            },
+            "point10": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 0
+            },
+            "point11": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 1
+            },
+            "point12": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 2
+            },
+            "point13": {
+                "owner": 1,
+                "state": 42,
+                "x": 1,
+                "y": 3
+            },
+            "point14": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 4
+            },
+            "point15": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 5
+            },
+            "point16": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 6
+            },
+            "point17": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 7
+            },
+            "point18": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 8
+            },
+            "point19": {
+                "owner": 1,
+                "state": 126,
+                "x": 1,
+                "y": 9
+            },
+            "point20": {
+                "owner": 1,
+                "state": 83,
+                "x": 2,
+                "y": 0
+            },
+            "point21": {
+                "owner": 1,
+                "state": 83,
+                "x": 2,
+                "y": 1
+            },
+            "point22": {
+                "owner": 1,
+                "state": 83,
+                "x": 2,
+                "y": 2
+            },
+            "point23": {
+                "owner": 1,
+                "state": 126,
+                "x": 2,
+                "y": 3
+            },
+            "point24": {
+                "owner": 1,
+                "state": 126,
+                "x": 2,
+                "y": 4
+            },
+            "point25": {
+                "owner": 1,
+                "state": 126,
+                "x": 2,
+                "y": 5
+            },
+            "point26": {
+                "owner": 1,
+                "state": 126,
+                "x": 2,
+                "y": 6
+            },
+            "point27": {
+                "owner": 1,
+                "state": 83,
+                "x": 2,
+                "y": 7
+            },
+            "point28": {
+                "owner": 1,
+                "state": 42,
+                "x": 2,
+                "y": 8
+            },
+            "point29": {
+                "owner": 1,
+                "state": 126,
+                "x": 2,
+                "y": 9
+            },
+            "point30": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 0
+            },
+            "point31": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 1
+            },
+            "point32": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 2
+            },
+            "point33": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 3
+            },
+            "point34": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 4
+            },
+            "point35": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 5
+            },
+            "point36": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 6
+            },
+            "point37": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 7
+            },
+            "point38": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 8
+            },
+            "point39": {
+                "owner": 1,
+                "state": 126,
+                "x": 3,
+                "y": 9
+            },
+            "point40": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 0
+            },
+            "point41": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 1
+            },
+            "point42": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 2
+            },
+            "point43": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 3
+            },
+            "point44": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 4
+            },
+            "point45": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 5
+            },
+            "point46": {
+                "owner": 1,
+                "state": 88,
+                "x": 4,
+                "y": 6
+            },
+            "point47": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 7
+            },
+            "point48": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 8
+            },
+            "point49": {
+                "owner": 1,
+                "state": 126,
+                "x": 4,
+                "y": 9
+            },
+            "point50": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 0
+            },
+            "point51": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 1
+            },
+            "point52": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 2
+            },
+            "point53": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 3
+            },
+            "point54": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 4
+            },
+            "point55": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 5
+            },
+            "point56": {
+                "owner": 1,
+                "state": 42,
+                "x": 5,
+                "y": 6
+            },
+            "point57": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 7
+            },
+            "point58": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 8
+            },
+            "point59": {
+                "owner": 1,
+                "state": 126,
+                "x": 5,
+                "y": 9
+            },
+            "point60": {
+                "owner": 1,
+                "state": 126,
+                "x": 6,
+                "y": 0
+            },
+            "point61": {
+                "owner": 1,
+                "state": 126,
+                "x": 6,
+                "y": 1
+            },
+            "point62": {
+                "owner": 1,
+                "state": 42,
+                "x": 6,
+                "y": 2
+            },
+            "point63": {
+                "owner": 1,
+                "state": 126,
+                "x": 6,
+                "y": 3
+            },
+            "point64": {
+                "owner": 1,
+                "state": 126,
+                "x": 6,
+                "y": 4
+            },
+            "point65": {
+                "owner": 1,
+                "state": 126,
+                "x": 6,
+                "y": 5
+            },
+            "point66": {
+                "owner": 1,
+                "state": 126,
+                "x": 6,
+                "y": 6
+            },
+            "point67": {
+                "owner": 1,
+                "state": 83,
+                "x": 6,
+                "y": 7
+            },
+            "point68": {
+                "owner": 1,
+                "state": 83,
+                "x": 6,
+                "y": 8
+            },
+            "point69": {
+                "owner": 1,
+                "state": 126,
+                "x": 6,
+                "y": 9
+            },
+            "point70": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 0
+            },
+            "point71": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 1
+            },
+            "point72": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 2
+            },
+            "point73": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 3
+            },
+            "point74": {
+                "owner": 1,
+                "state": 83,
+                "x": 7,
+                "y": 4
+            },
+            "point75": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 5
+            },
+            "point76": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 6
+            },
+            "point77": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 7
+            },
+            "point78": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 8
+            },
+            "point79": {
+                "owner": 1,
+                "state": 126,
+                "x": 7,
+                "y": 9
+            },
+            "point80": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 0
+            },
+            "point81": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 1
+            },
+            "point82": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 2
+            },
+            "point83": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 3
+            },
+            "point84": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 4
+            },
+            "point85": {
+                "owner": 1,
+                "state": 42,
+                "x": 8,
+                "y": 5
+            },
+            "point86": {
+                "owner": 1,
+                "state": 42,
+                "x": 8,
+                "y": 6
+            },
+            "point87": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 7
+            },
+            "point88": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 8
+            },
+            "point89": {
+                "owner": 1,
+                "state": 126,
+                "x": 8,
+                "y": 9
+            },
+            "point90": {
+                "owner": 1,
+                "state": 83,
+                "x": 9,
+                "y": 0
+            },
+            "point91": {
+                "owner": 1,
+                "state": 83,
+                "x": 9,
+                "y": 1
+            },
+            "point92": {
+                "owner": 1,
+                "state": 126,
+                "x": 9,
+                "y": 2
+            },
+            "point93": {
+                "owner": 1,
+                "state": 126,
+                "x": 9,
+                "y": 3
+            },
+            "point94": {
+                "owner": 1,
+                "state": 126,
+                "x": 9,
+                "y": 4
+            },
+            "point95": {
+                "owner": 1,
+                "state": 126,
+                "x": 9,
+                "y": 5
+            },
+            "point96": {
+                "owner": 1,
+                "state": 83,
+                "x": 9,
+                "y": 6
+            },
+            "point97": {
+                "owner": 1,
+                "state": 83,
+                "x": 9,
+                "y": 7
+            },
+            "point98": {
+                "owner": 1,
+                "state": 83,
+                "x": 9,
+                "y": 8
+            },
+            "point99": {
+                "owner": 1,
+                "state": 83,
+                "x": 9,
+                "y": 9
+            },
+            "rows": 10
+        },
+        "botShipManager": {
+            "ship0": {
+                "horizont": true,
+                "length": 4,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 6,
+                        "y": 9
+                    },
+                    {
+                        "health": 0,
+                        "x": 7,
+                        "y": 9
+                    },
+                    {
+                        "health": 0,
+                        "x": 8,
+                        "y": 9
+                    },
+                    {
+                        "health": 0,
+                        "x": 9,
+                        "y": 9
+                    }
+                ]
+            },
+            "ship1": {
+                "horizont": true,
+                "length": 3,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "health": 0,
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "health": 0,
+                        "x": 2,
+                        "y": 0
+                    }
+                ]
+            },
+            "ship2": {
+                "horizont": true,
+                "length": 3,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 0,
+                        "y": 2
+                    },
+                    {
+                        "health": 0,
+                        "x": 1,
+                        "y": 2
+                    },
+                    {
+                        "health": 0,
+                        "x": 2,
+                        "y": 2
+                    }
+                ]
+            },
+            "ship3": {
+                "horizont": true,
+                "length": 2,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 7,
+                        "y": 6
+                    },
+                    {
+                        "health": 0,
+                        "x": 8,
+                        "y": 6
+                    }
+                ]
+            },
+            "ship4": {
+                "horizont": true,
+                "length": 2,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 0,
+                        "y": 9
+                    },
+                    {
+                        "health": 0,
+                        "x": 1,
+                        "y": 9
+                    }
+                ]
+            },
+            "ship5": {
+                "horizont": true,
+                "length": 2,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 8,
+                        "y": 0
+                    },
+                    {
+                        "health": 0,
+                        "x": 9,
+                        "y": 0
+                    }
+                ]
+            },
+            "ship6": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 4,
+                        "y": 7
+                    }
+                ]
+            },
+            "ship7": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 4,
+                        "y": 0
+                    }
+                ]
+            },
+            "ship8": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 1,
+                        "x": 6,
+                        "y": 4
+                    }
+                ]
+            },
+            "ship9": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 7,
+                        "y": 2
+                    }
+                ]
+            }
+        },
+        "currentDamage": 1,
+        "humanAbilityManager": {
+            "abilities": [
+                "Double Damage",
+                "Scanner"
+            ]
+        },
+        "humanMap": {
+            "cols": 10,
+            "point00": {
+                "owner": 0,
+                "state": 83,
+                "x": 0,
+                "y": 0
+            },
+            "point01": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 1
+            },
+            "point02": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 2
+            },
+            "point03": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 3
+            },
+            "point04": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 4
+            },
+            "point05": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 5
+            },
+            "point06": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 6
+            },
+            "point07": {
+                "owner": 0,
+                "state": 83,
+                "x": 0,
+                "y": 7
+            },
+            "point08": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 8
+            },
+            "point09": {
+                "owner": 0,
+                "state": 126,
+                "x": 0,
+                "y": 9
+            },
+            "point10": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 0
+            },
+            "point11": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 1
+            },
+            "point12": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 2
+            },
+            "point13": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 3
+            },
+            "point14": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 4
+            },
+            "point15": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 5
+            },
+            "point16": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 6
+            },
+            "point17": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 7
+            },
+            "point18": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 8
+            },
+            "point19": {
+                "owner": 0,
+                "state": 126,
+                "x": 1,
+                "y": 9
+            },
+            "point20": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 0
+            },
+            "point21": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 1
+            },
+            "point22": {
+                "owner": 0,
+                "state": 83,
+                "x": 2,
+                "y": 2
+            },
+            "point23": {
+                "owner": 0,
+                "state": 83,
+                "x": 2,
+                "y": 3
+            },
+            "point24": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 4
+            },
+            "point25": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 5
+            },
+            "point26": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 6
+            },
+            "point27": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 7
+            },
+            "point28": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 8
+            },
+            "point29": {
+                "owner": 0,
+                "state": 126,
+                "x": 2,
+                "y": 9
+            },
+            "point30": {
+                "owner": 0,
+                "state": 83,
+                "x": 3,
+                "y": 0
+            },
+            "point31": {
+                "owner": 0,
+                "state": 126,
+                "x": 3,
+                "y": 1
+            },
+            "point32": {
+                "owner": 0,
+                "state": 126,
+                "x": 3,
+                "y": 2
+            },
+            "point33": {
+                "owner": 0,
+                "state": 126,
+                "x": 3,
+                "y": 3
+            },
+            "point34": {
+                "owner": 0,
+                "state": 126,
+                "x": 3,
+                "y": 4
+            },
+            "point35": {
+                "owner": 0,
+                "state": 126,
+                "x": 3,
+                "y": 5
+            },
+            "point36": {
+                "owner": 0,
+                "state": 83,
+                "x": 3,
+                "y": 6
+            },
+            "point37": {
+                "owner": 0,
+                "state": 83,
+                "x": 3,
+                "y": 7
+            },
+            "point38": {
+                "owner": 0,
+                "state": 83,
+                "x": 3,
+                "y": 8
+            },
+            "point39": {
+                "owner": 0,
+                "state": 83,
+                "x": 3,
+                "y": 9
+            },
+            "point40": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 0
+            },
+            "point41": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 1
+            },
+            "point42": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 2
+            },
+            "point43": {
+                "owner": 1,
+                "state": 42,
+                "x": 4,
+                "y": 3
+            },
+            "point44": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 4
+            },
+            "point45": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 5
+            },
+            "point46": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 6
+            },
+            "point47": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 7
+            },
+            "point48": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 8
+            },
+            "point49": {
+                "owner": 0,
+                "state": 126,
+                "x": 4,
+                "y": 9
+            },
+            "point50": {
+                "owner": 0,
+                "state": 126,
+                "x": 5,
+                "y": 0
+            },
+            "point51": {
+                "owner": 0,
+                "state": 83,
+                "x": 5,
+                "y": 1
+            },
+            "point52": {
+                "owner": 0,
+                "state": 83,
+                "x": 5,
+                "y": 2
+            },
+            "point53": {
+                "owner": 0,
+                "state": 126,
+                "x": 5,
+                "y": 3
+            },
+            "point54": {
+                "owner": 1,
+                "state": 42,
+                "x": 5,
+                "y": 4
+            },
+            "point55": {
+                "owner": 0,
+                "state": 126,
+                "x": 5,
+                "y": 5
+            },
+            "point56": {
+                "owner": 0,
+                "state": 126,
+                "x": 5,
+                "y": 6
+            },
+            "point57": {
+                "owner": 0,
+                "state": 126,
+                "x": 5,
+                "y": 7
+            },
+            "point58": {
+                "owner": 0,
+                "state": 83,
+                "x": 5,
+                "y": 8
+            },
+            "point59": {
+                "owner": 0,
+                "state": 126,
+                "x": 5,
+                "y": 9
+            },
+            "point60": {
+                "owner": 0,
+                "state": 126,
+                "x": 6,
+                "y": 0
+            },
+            "point61": {
+                "owner": 0,
+                "state": 126,
+                "x": 6,
+                "y": 1
+            },
+            "point62": {
+                "owner": 0,
+                "state": 126,
+                "x": 6,
+                "y": 2
+            },
+            "point63": {
+                "owner": 0,
+                "state": 126,
+                "x": 6,
+                "y": 3
+            },
+            "point64": {
+                "owner": 0,
+                "state": 126,
+                "x": 6,
+                "y": 4
+            },
+            "point65": {
+                "owner": 0,
+                "state": 126,
+                "x": 6,
+                "y": 5
+            },
+            "point66": {
+                "owner": 1,
+                "state": 42,
+                "x": 6,
+                "y": 6
+            },
+            "point67": {
+                "owner": 1,
+                "state": 42,
+                "x": 6,
+                "y": 7
+            },
+            "point68": {
+                "owner": 1,
+                "state": 42,
+                "x": 6,
+                "y": 8
+            },
+            "point69": {
+                "owner": 1,
+                "state": 42,
+                "x": 6,
+                "y": 9
+            },
+            "point70": {
+                "owner": 0,
+                "state": 126,
+                "x": 7,
+                "y": 0
+            },
+            "point71": {
+                "owner": 0,
+                "state": 126,
+                "x": 7,
+                "y": 1
+            },
+            "point72": {
+                "owner": 0,
+                "state": 83,
+                "x": 7,
+                "y": 2
+            },
+            "point73": {
+                "owner": 0,
+                "state": 83,
+                "x": 7,
+                "y": 3
+            },
+            "point74": {
+                "owner": 0,
+                "state": 83,
+                "x": 7,
+                "y": 4
+            },
+            "point75": {
+                "owner": 0,
+                "state": 126,
+                "x": 7,
+                "y": 5
+            },
+            "point76": {
+                "owner": 1,
+                "state": 42,
+                "x": 7,
+                "y": 6
+            },
+            "point77": {
+                "owner": 1,
+                "state": 94,
+                "x": 7,
+                "y": 7
+            },
+            "point78": {
+                "owner": 1,
+                "state": 94,
+                "x": 7,
+                "y": 8
+            },
+            "point79": {
+                "owner": 1,
+                "state": 94,
+                "x": 7,
+                "y": 9
+            },
+            "point80": {
+                "owner": 0,
+                "state": 126,
+                "x": 8,
+                "y": 0
+            },
+            "point81": {
+                "owner": 0,
+                "state": 126,
+                "x": 8,
+                "y": 1
+            },
+            "point82": {
+                "owner": 0,
+                "state": 126,
+                "x": 8,
+                "y": 2
+            },
+            "point83": {
+                "owner": 0,
+                "state": 126,
+                "x": 8,
+                "y": 3
+            },
+            "point84": {
+                "owner": 0,
+                "state": 126,
+                "x": 8,
+                "y": 4
+            },
+            "point85": {
+                "owner": 0,
+                "state": 126,
+                "x": 8,
+                "y": 5
+            },
+            "point86": {
+                "owner": 1,
+                "state": 42,
+                "x": 8,
+                "y": 6
+            },
+            "point87": {
+                "owner": 1,
+                "state": 42,
+                "x": 8,
+                "y": 7
+            },
+            "point88": {
+                "owner": 1,
+                "state": 42,
+                "x": 8,
+                "y": 8
+            },
+            "point89": {
+                "owner": 1,
+                "state": 42,
+                "x": 8,
+                "y": 9
+            },
+            "point90": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 0
+            },
+            "point91": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 1
+            },
+            "point92": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 2
+            },
+            "point93": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 3
+            },
+            "point94": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 4
+            },
+            "point95": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 5
+            },
+            "point96": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 6
+            },
+            "point97": {
+                "owner": 0,
+                "state": 83,
+                "x": 9,
+                "y": 7
+            },
+            "point98": {
+                "owner": 0,
+                "state": 83,
+                "x": 9,
+                "y": 8
+            },
+            "point99": {
+                "owner": 0,
+                "state": 126,
+                "x": 9,
+                "y": 9
+            },
+            "rows": 10
+        },
+        "humanShipManager": {
+            "ship0": {
+                "horizont": true,
+                "length": 4,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 6,
+                        "y": 3
+                    },
+                    {
+                        "health": 0,
+                        "x": 7,
+                        "y": 3
+                    },
+                    {
+                        "health": 0,
+                        "x": 8,
+                        "y": 3
+                    },
+                    {
+                        "health": 0,
+                        "x": 9,
+                        "y": 3
+                    }
+                ]
+            },
+            "ship1": {
+                "horizont": true,
+                "length": 3,
+                "params": [
+                    {
+                        "health": 2,
+                        "x": 7,
+                        "y": 7
+                    },
+                    {
+                        "health": 2,
+                        "x": 8,
+                        "y": 7
+                    },
+                    {
+                        "health": 2,
+                        "x": 9,
+                        "y": 7
+                    }
+                ]
+            },
+            "ship2": {
+                "horizont": true,
+                "length": 3,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 2,
+                        "y": 7
+                    },
+                    {
+                        "health": 0,
+                        "x": 3,
+                        "y": 7
+                    },
+                    {
+                        "health": 0,
+                        "x": 4,
+                        "y": 7
+                    }
+                ]
+            },
+            "ship3": {
+                "horizont": true,
+                "length": 2,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 7,
+                        "y": 9
+                    },
+                    {
+                        "health": 0,
+                        "x": 8,
+                        "y": 9
+                    }
+                ]
+            },
+            "ship4": {
+                "horizont": true,
+                "length": 2,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 2,
+                        "y": 2
+                    },
+                    {
+                        "health": 0,
+                        "x": 3,
+                        "y": 2
+                    }
+                ]
+            },
+            "ship5": {
+                "horizont": true,
+                "length": 2,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 1,
+                        "y": 5
+                    },
+                    {
+                        "health": 0,
+                        "x": 2,
+                        "y": 5
+                    }
+                ]
+            },
+            "ship6": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 7,
+                        "y": 0
+                    }
+                ]
+            },
+            "ship7": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 0,
+                        "y": 3
+                    }
+                ]
+            },
+            "ship8": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 0,
+                        "y": 0
+                    }
+                ]
+            },
+            "ship9": {
+                "horizont": true,
+                "length": 1,
+                "params": [
+                    {
+                        "health": 0,
+                        "x": 8,
+                        "y": 5
+                    }
+                ]
+            }
+        }
+    },
+    "hashValue": "88e8a3efb0d2b46"
+}

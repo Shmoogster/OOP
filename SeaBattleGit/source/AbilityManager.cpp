@@ -1,26 +1,29 @@
 #include "../include/AbilityManager.hpp"
 
-AbilityManager::AbilityManager(Map& map): map(map){
-    std::vector<Abilities> vec = {Abilities::DoubleDamage, Abilities::Scanner,Abilities::Shelling};
+AbilityManager::AbilityManager() {
+    std::vector<AbilityCreator*> vec = {new DoubleDamageAbilityCreator(), new ScannerAbilityCreator() ,new ShellingAbilityCreator()};
     std::random_device RD;
     std::mt19937 gen(RD());
     std::shuffle(vec.begin(), vec.end(), gen);
     this->ability.push(vec[0]);
 }
+AbilityManager::~AbilityManager() {
+    while (!this->ability.empty()) {
+        this->ability.pop();
+    }
+}
 
 int AbilityManager::GetAbilCount() const {
     return this->ability.size();
 }
-Abilities AbilityManager::Front(){
-    return this->ability.front();
-}
+
 void AbilityManager::IfEmpty(){
     if(ability.empty()){
         throw NoAbilitiesAvailableException();
     }
 }
-void AbilityManager::AddAbility(Abilities ability){
-    this->ability.push(ability);
+void AbilityManager::AddAbility(AbilityCreator *create){
+    this->ability.push(create);
 }
 void AbilityManager::RandomizeAbility(){
     std::random_device RD;
@@ -28,41 +31,37 @@ void AbilityManager::RandomizeAbility(){
     int RandNum=gen()%3;
     switch(RandNum){
         case 0: {
-            this->AddAbility(Abilities::DoubleDamage);
+            this->AddAbility(new DoubleDamageAbilityCreator());
             break;
         }
         case 1: {
-            this->AddAbility(Abilities::Scanner);
+            this->AddAbility(new ScannerAbilityCreator());
             break;
         }
         case 2: {
-            this->AddAbility(Abilities::Shelling);
+            this->AddAbility(new ShellingAbilityCreator());
             break;
         }
         default:
             break;
     }
 }
-void AbilityManager::UseAbility(Coord coord){
-    Abilities ability = this->ability.front();
-    if (coord.x == -1 && coord.y == -1) {
-        (new ShellingAbilityCreator(this->map))->CreateAbility()->TakeAbility();
-        this->ability.pop();
-        return;
-    }
-    
-    if (ability == Abilities::DoubleDamage) {
-        (new DoubleDamageAbilityCreator(this->map, coord))->CreateAbility()->TakeAbility();
-        this->ability.pop();
-        return;
-    }
-    
-    if (ability == Abilities::Scanner) {
-        (new ScannerAbilityCreator(this->map, coord))->CreateAbility()->TakeAbility();
-        this->ability.pop();
-        return;
-    }
+void AbilityManager::UseAbility(AbilityParams& abilpar){
+    this->IfEmpty();
+    AbilityCreator* createdAbility = this->ability.front();
+    createdAbility->CreateAbility(abilpar)->TakeAbility();
+    delete(createdAbility);
+    this->ability.pop();
 }
 void AbilityManager::PopAbility() {
     this->ability.pop();
+}
+
+AbilityCreator& AbilityManager::getCreator(int index){
+    IfEmpty();
+    std::queue<AbilityCreator*> buf= this->ability;
+    for (int i=0; i<index; i++){
+        buf.pop();
+    }
+    return *buf.front();
 }

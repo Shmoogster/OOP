@@ -6,18 +6,20 @@
 using namespace std;
 class ShipManager{
     private:
-        std::vector<Ship*> ships;
+        std::vector<Ship> ships;
         int shipCount;
+        int shipsAlive;
     public:
+        ShipManager() : ships({}) {};
         ShipManager(int shipCount, std::vector<int>shipsize);
-        ~ShipManager();
 
         //методы
-        std::vector<Ship*> getShips() const;
+        std::vector<Ship> getShips() const;
         Ship* GetShip(Coord coord);
         int GetShipCount() const;
+        Ship& getIndexShip(int index);
         void SetShipCount(int count);
         void addShip(int length);
-        void CheckHP(Coord coord);
-        void printShips() const;
+        int getShipsAlive() const;
+        void setShipsAlive(int count);
 };
