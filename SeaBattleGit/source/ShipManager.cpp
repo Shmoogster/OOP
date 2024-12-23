@@ -2,19 +2,14 @@
 #include <vector>
 #include "../include/ShipManager.hpp"
 
-ShipManager::ShipManager(int shipCount, std::vector<int>shipsize) : shipCount(shipCount){
+ShipManager::ShipManager(int shipCount, std::vector<int>shipsize) : shipCount(shipCount), shipsAlive(shipCount){
     for (auto& length : shipsize){
-        ships.push_back(new Ship(length));
+        ships.push_back(Ship(length));
     }
 }
 
-ShipManager::~ShipManager(){
-    for (auto& ship: this->ships){
-        delete ship;
-    }
-}
 
-std::vector<Ship*> ShipManager::getShips() const{
+std::vector<Ship> ShipManager::getShips() const{
     return ships;
 }
 
@@ -26,40 +21,31 @@ void ShipManager::SetShipCount(int count) {
     this->shipCount = count;
 }
 
-Ship* ShipManager::GetShip(Coord coord){
-    for(auto& ship: this->ships){
-        for(auto& param: ship->getParams()){
-            if(param->coord.x == coord.x && param->coord.y == coord.y){
-                return ship;
-            }
-        }
-    }
-    return new Ship(0);
+
+Ship& ShipManager::getIndexShip(int index) {
+    return this->ships[index];
 }
 
 void ShipManager::addShip(int length){
-    this->ships.push_back(new Ship(length));
+    this->ships.push_back(Ship(length));
 }
 
-void ShipManager::CheckHP(Coord coord){
-    for (auto& ship: this-> ships){
-        std::vector<ShipParams*> params= ship-> getParams();
-        for( auto& param: params) {
-            if(param-> coord.x ==coord.x && param-> coord.y == coord.y){
-                switch(param-> health){
-                    case HealthPosition::Fullhp:
-                        std::cout << "Not a single hole in the ship"<< std::endl;
-                        break;
-                    case HealthPosition::Onehp:
-                        std::cout << "There are a couple of holes in the ship" << std::endl;
-                        break;
-                    case HealthPosition::Destroyed:
-                        std::cout << "The ship is going to the bottom" << std::endl;
-                        break;
-                }
-                return;
+Ship* ShipManager::GetShip(Coord coord) {
+    for (auto& ship : this->ships) {
+        for (int i = 0; i < ship.getLength(); i++) {
+            if (ship.getParams(i)->coord.x == coord.x && ship.getParams(i)->coord.y == coord.y) {
+                return &ship;
             }
         }
     }
-    std::cout<<"There is no ship here"<< std::endl;
+    return nullptr;
 }
+
+int ShipManager::getShipsAlive() const {
+    return this->shipsAlive;
+}
+
+void ShipManager::setShipsAlive(int count) {
+    this->shipsAlive = count;
+}
+ 

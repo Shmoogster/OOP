@@ -1,37 +1,39 @@
 #pragma once
 
 #include "Ability.hpp"
+#include "AbilityParams.hpp"
+#include <string.h>
 
-enum class Abilities { DoubleDamage, Scanner, Shelling };
+
 
 class AbilityCreator {
     public:
-        virtual Ability* CreateAbility() = 0;
+        virtual Ability* CreateAbility(AbilityParams& abilpar) = 0;
+        virtual std::string getTitle() const = 0;
+        virtual bool isUseCoord() = 0;
         virtual ~AbilityCreator() {};
 };
 
 class DoubleDamageAbilityCreator : public AbilityCreator {
-    private:
-        Map& map;
-        Coord coord;
     public:
-        DoubleDamageAbilityCreator(Map& map, Coord coord) : map(map), coord(coord) {};
-        Ability* CreateAbility() override { return new DoubleDamage(this->map, this->coord); };
+        DoubleDamageAbilityCreator() {};
+        std::string getTitle() const override {return "Double Damage";};
+        bool isUseCoord() override {return false;};
+        Ability* CreateAbility(AbilityParams& abilpar) override { return new DoubleDamage(abilpar.damage); };
 };
 
 class ScannerAbilityCreator : public AbilityCreator {
-    private:
-        Map& map;
-        Coord coord;
     public:
-        ScannerAbilityCreator(Map& map, Coord coord) : map(map), coord(coord) {};
-        Ability* CreateAbility() override { return new Scanner(this->map, this->coord); };
+        ScannerAbilityCreator() {};
+        std::string getTitle() const override {return "Scanner";};
+        bool isUseCoord() override {return true;};
+        Ability* CreateAbility(AbilityParams& abilpar) override { return new Scanner(abilpar.map, abilpar.coord); };
 };
 
 class ShellingAbilityCreator : public AbilityCreator {
-    private:
-        Map& map;
     public:
-        ShellingAbilityCreator(Map& map) : map(map) {};
-        Ability* CreateAbility() override { return new Shelling(this->map); };
+        ShellingAbilityCreator() {};
+        std::string getTitle() const override {return "Shelling";};
+        bool isUseCoord() override {return false;};
+        Ability* CreateAbility(AbilityParams& abilpar) override { return new Shelling(abilpar.map); };
 };

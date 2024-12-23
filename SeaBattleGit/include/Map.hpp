@@ -6,7 +6,6 @@
 #include <random>
 
 #include "Exceptions/UnableToPlaceShipsException.hpp"
-#include "Exceptions/MultipleMissesException.hpp"
 #include "Exceptions/OutOfRangeException.hpp"
 #include "Exceptions/RevealedPointAttackException.hpp"
 #include "Exceptions/ShipPlacementException.hpp"
@@ -19,6 +18,7 @@ private:
     int cols;
     std::vector<Point>map;
 public:
+    Map() : rows(0), cols(0) {};
     Map(int rows,int cols);
     Map(const Map& other);
     Map& operator=(const Map& other);

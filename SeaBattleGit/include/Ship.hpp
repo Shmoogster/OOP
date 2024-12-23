@@ -8,16 +8,15 @@ class Ship{
     private:
         int length;
         Posture orientation;
-        std::vector<ShipParams*> params;
+        std::vector<ShipParams> params;
     public:
         Ship(int length);
-        ~Ship();
 
         //методы
         int getLength() const;
-        std::vector<ShipParams*> getParams() const;
+        ShipParams* getParams(int index);
+        void SetPosture(Posture newposture);
         bool CheckPosture() const;
-        void ChangePosture();
         bool isDestroyed() const;
         void SetCoord(Coord coord);
 };

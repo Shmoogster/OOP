@@ -1,128 +1,113 @@
 #include "../include/Game.hpp"
 
-void Game::StartGame() {
-    Display display;
-    Map enemyMap = Map(10, 10);
-    Map ourMap = Map(enemyMap);
-    std::vector<int> shipSizes = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
-    try {
-        for (auto& size : shipSizes) {
-            if (size < 0 || size > 4) {
-                throw InvalidShipSizeException();
-            }
-        }
+void Game::useHumanAbility() {
+    for(const auto& wardn: this-> warden){
+        wardn->AbilityUsed();
     }
-    catch (InvalidShipSizeException& e) {
-        display.PrintException(e);
-        return;
+    Coord coord = {-1, -1};
+    AbilityParams ap(human.getMap(), human.getShipManager(), coord, gameState.getCurDamage());
+    human.getAbilityManager().IfEmpty();
+    if (human.getAbilityManager().getCreator(0).isUseCoord()){
+        ap.coord = gameState.getCoord();
     }
-    ShipManager* enemyShips = new ShipManager(10, shipSizes);
-    ShipManager* selfShips = new ShipManager(10, shipSizes);
-    
-    try {
-        enemyMap.initMap(enemyShips->getShips());
-        ourMap.initMap(selfShips->getShips());
-    }
-    catch (UnableToPlaceShipsException& e) {
-        display.PrintException(e);
-        return;
-    }
-    ourMap.OpeningPoint();
-    display.printMaps(ourMap, enemyMap);
-    AbilityManager am(enemyMap);
-    while (true) {
-        int x, y;
-        std::cout << "You have " << am.GetAbilCount() << " abilities available." << std::endl;
-        std::cout << "Use random ability? 'y'" << std::endl;
-        std::string result;
-        std::cin >> result;
-        if (result == "y" || result == "Y") {
-            try {
-                am.IfEmpty();
-            }
-            catch (NoAbilitiesAvailableException& e) {
-                display.PrintException(e);
-                continue;
-            }
-            Abilities name = am.Front();
-            display.printAbilityName(name);
-            x = y = 0;
-            try {
-                if (name == Abilities::DoubleDamage || name == Abilities::Scanner) {
-                    std::cout << "Give coordinates for ability." << std::endl;
-                    std::cin >> x >> y;
-                    am.UseAbility({x, y});
-                }
-                else {
-                    am.UseAbility();
-                }
-            }
-            catch (RevealedPointAttackException& e) {
-                am.PopAbility();
-            }
-            catch (OutOfRangeException& e) {
-                display.PrintException(e);
-                continue;
-            }
-            
-            if (name == Abilities::DoubleDamage) {
-                Ship* enemyShip = enemyShips->GetShip({x, y});
-                if (enemyShip->getLength() != 0 && enemyShip->isDestroyed()) {
-                    enemyMap.OpeningCoordsAround(enemyShip);
-                    enemyShips->SetShipCount(enemyShips->GetShipCount() - 1);
-                    
-                    std::cout << "Ability added." << std::endl;
-                    am.RandomizeAbility();
-                }
-            }
-            display.printMaps(ourMap, enemyMap);
-        }
-        
-        while (true) {
-            try {
-                std::cin >> x >> y;
-                enemyMap.Attack({x, y});
-            }
-            catch (RevealedPointAttackException& e) {
-                display.PrintException(e);
-                continue;
-            }
-            catch (OutOfRangeException& e) {
-                display.PrintException(e);
-                continue;
-            }
-            break;
-        }
-        
-        Ship* enemyShip = enemyShips->GetShip({x, y});
-        if (enemyShip->getLength() != 0 && enemyShip->isDestroyed()) {
-            enemyMap.OpeningCoordsAround(enemyShip);
-            enemyShips->SetShipCount(enemyShips->GetShipCount() - 1);
-            
-            std::cout << "Ability added." << std::endl;
-            am.RandomizeAbility();
-            if (enemyShips->GetShipCount() == 0) {
-                std::cout << "You win!" << std::endl;
-                break;
-            }
-        }
-        Coord coords = {-1, -1};
+    human.getAbilityManager().UseAbility(ap);
+    this->gameState.setAbilityUsed(true);
+}
+
+void Game::HumanAttack() {
+    int successAttack = false;
+    while (!successAttack) {
         try {
-            coords = ourMap.AttackRandom();
-        }
-        catch (MultipleMissesException& e) {
-            display.PrintException(e);
-            continue;
-        }
-        Ship* selfShip = selfShips->GetShip(coords);
-        if (selfShip->getLength() != 0 && selfShip->isDestroyed()) {
-            ourMap.OpeningCoordsAround(selfShip);
-            selfShips->SetShipCount(selfShips->GetShipCount() - 1);
-            if (selfShips->GetShipCount() == 0) {
-                std::cout << "You lose!" << std::endl;
-                break;
+            for (int i = 0; i < gameState.getCurDamage(); i++) {
+                human.getMap().Attack(gameState.getCoord());
+                successAttack = true;
             }
         }
-        display.printMaps(ourMap, enemyMap);
+        catch (RevealedPointAttackException& e) {
+            if (successAttack) {
+                break;
+            }
+            throw RevealedPointAttackException();
+        }
+        break;
+    }
+    this->gameState.setCurDamage(1);
+
+    Ship* enemyShip = human.getShipManager().GetShip(gameState.getCoord());
+    if (enemyShip != nullptr && enemyShip->isDestroyed()) {
+        human.getMap().OpeningCoordsAround(enemyShip);
+        human.getShipManager().setShipsAlive(human.getShipManager().getShipsAlive() - 1); 
+        std::cout << "Ability added." << std::endl;
+        human.getAbilityManager().RandomizeAbility();
+    }
+    if (human.getShipManager().getShipsAlive() == 0) {
+        for(const auto& wardn : this->warden){
+            wardn->HumanWin();
+        }
+        this->resetBot();
+    }
+    this->gameState.setAbilityUsed(false);
+}
+
+void Game::BotAttack() {
+    Coord coord = bot.getMap().AttackRandom();
+    Ship* selfShip = bot.getShipManager().GetShip(coord);
+    if (selfShip != nullptr && selfShip->isDestroyed()) {
+        bot.getMap().OpeningCoordsAround(selfShip);
+        bot.getShipManager().setShipsAlive(bot.getShipManager().getShipsAlive() - 1);
+    }
+
+    for(const auto& wardn : this->warden){
+        wardn->EndTurn();
+    }
+
+    if (bot.getShipManager().getShipsAlive() == 0) {
+        for(const auto& wardn : this->warden){
+            wardn->BotWin();
+        }
+        this->resetGame();
     }
 }
+
+void Game::resetBot() {
+    std::vector<int> shipSizes = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
+    
+    Map newMap = Map(10, 10);
+    ShipManager newShips = ShipManager(10, shipSizes);
+    for (size_t i = 0; i < shipSizes.size(); i++) {
+        newMap.PlaceShipRandom(&newShips.getIndexShip(i));
+    }
+    this->human = Human(newShips, newMap, human.getAbilityManager());
+}
+
+void Game::resetGame() {
+    resetBot();
+    std::vector<int> shipSizes = {4, 3, 3, 2, 2, 2, 1, 1, 1, 1};
+    
+    Map newMap = Map(10, 10);
+    ShipManager newShips = ShipManager(10, shipSizes);
+    for (size_t i = 0; i < shipSizes.size(); i++) {
+        newMap.PlaceShipRandom(&newShips.getIndexShip(i));
+    }
+    newMap.OpeningPoint();
+    this->bot = Bot(newShips, newMap);
+}
+
+void Game::addWarden(Warden* wardn){
+    this->warden.push_back(wardn);
+}
+
+void Game::LoadGame() {
+    try {
+        this->gameState.LoadGame();
+    } catch (nlohmann::json::exception& e) {
+        std::cerr << "\033[1;31m" << "Error parsing JSON: " << e.what() << "\033[0m" << std::endl;
+       return;
+    } catch (HashMismatchException& e) {
+        display.PrintException(e);
+    }
+}
+
+void Game::SaveGame() {
+    this->gameState.SaveGame();
+}   

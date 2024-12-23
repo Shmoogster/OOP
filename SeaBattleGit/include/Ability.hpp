@@ -1,24 +1,21 @@
 #pragma once
 
 #include "Map.hpp"
+#include "AbilityParams.hpp"
 #include <string>
 #include <random>
 
-//void DoubleDamage::TakeAbility(Map& map);
-//void Scanner::TakeAbility(Map& map);
-//void Shelling::TakeAbility(Map& map);
 
 class Ability {
     public:
         virtual void TakeAbility() = 0;
-        virtual ~Ability() = default;
+        virtual ~Ability() {};
 };
 class DoubleDamage: public Ability{
     private:
-        Map& map;
-        Coord coord;
+        int& damage;
     public:
-        DoubleDamage(Map& map,Coord coord);
+        DoubleDamage(int& damage);
         void TakeAbility() override;
 };
 
@@ -30,6 +27,7 @@ class Scanner: public Ability{
         Scanner(Map& map,Coord coord);
         void TakeAbility() override;
 };
+
 class Shelling: public Ability{
     private:
         Map& map;

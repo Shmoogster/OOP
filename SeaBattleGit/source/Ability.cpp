@@ -1,22 +1,22 @@
 #include "../include/Ability.hpp"
 
-DoubleDamage::DoubleDamage(Map& map, Coord coord) : map(map), coord(coord) {}
+DoubleDamage::DoubleDamage(int& damage) : damage(damage) {}
 Scanner::Scanner(Map& map, Coord coord) : map(map), coord(coord) {}
 Shelling::Shelling(Map& map) : map(map) {}
 
 void DoubleDamage::TakeAbility(){
-    this->map.Attack(this->coord);
-    this->map.Attack(this->coord);
+    this->damage = 2;
 }
 void Scanner::TakeAbility(){
     for(int y=0; y<=1; y++){
         for(int x=0; x<=1; x++){
             if(map.CheckForCoord({coord.x+x,coord.y+y})){
-                Point& mappoint = map.GetMap()[map.GetCols()*(coord.y+y) + coord.x + x];
-                if (mappoint.param!=nullptr ){
-                    std::cout << "Ship is revealed"<< std::endl;
-                    return;
-                }
+                throw OutOfRangeException();
+            }                
+            Point& mappoint = map.GetMap()[map.GetCols()*(coord.y+y) + coord.x + x];
+            if (mappoint.param!=nullptr ){
+                std::cout << "Ship is revealed"<< std::endl;
+                return;
             }
         }
     }
@@ -38,7 +38,6 @@ void Shelling::TakeAbility(){
         int randX=uidX(gen);
         int randY=uidY(gen);
         Point& mappoint=map.GetPoint({randX,randY});
-
         if(mappoint.param!=nullptr && mappoint.state!=PointState::Dead){
             mappoint.param->TakeDamage();
             if(mappoint.state==PointState::TwoHp){

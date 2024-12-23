@@ -92,15 +92,15 @@ bool Map::PlaceShip(Ship* ship, Coord coord){
         
         for(int i=0; i< ship->getLength(); i++){
             if(CheckCoordAround({coord.x+i,coord.y})){
-                return false;
+                throw ShipPlacementException();
             }
             if(this->CheckShipCoord({coord.x+i, coord.y})){
-                return false;
+                throw ShipPlacementException();
             }
         }
         for(int i=0; i< ship->getLength(); i++){
-            ship->getParams()[i]->coord=Coord{coord.x,coord.y+i};
-            map[coord.y*this->cols+coord.x+i].param=ship->getParams()[i];
+            ship->getParams(i)->coord=Coord{coord.x,coord.y+i};
+            map[coord.y*this->cols+coord.x+i].param=ship->getParams(i);
             map[coord.y*this->cols+coord.x+i].state=PointState::TwoHp;        
         }
         return true;
@@ -114,15 +114,15 @@ bool Map::PlaceShip(Ship* ship, Coord coord){
     }
     for(int i=0; i< ship->getLength(); i++){
         if(CheckCoordAround({coord.x,coord.y+i})){
-            return false;
+            throw ShipPlacementException();
         }
         if(this->CheckShipCoord({coord.x, coord.y+i})){
-            return false;
+           throw ShipPlacementException();
         }
     }
     for(int i=0; i< ship->getLength(); i++){
-        ship->getParams()[i]->coord=Coord{coord.x+i,coord.y};
-        map[(coord.y+i)*this->cols+coord.x].param=ship->getParams()[i];
+        ship->getParams(i)->coord=Coord{coord.x+i,coord.y};
+        map[(coord.y+i)*this->cols+coord.x].param=ship->getParams(i);
         map[(coord.y+i)*this->cols+coord.x].state=PointState::TwoHp;        
     }
     return true;
@@ -141,17 +141,20 @@ void Map::PlaceShipRandom(Ship* ship){
         int randY=uidY(gen);
         int randPosture=uidPosture(gen);
         if(randPosture==1){
-            ship->ChangePosture();
+            ship->SetPosture(Posture::Vertic);
         }
-        if(this->PlaceShip(ship, {randX, randY})){
-            ship->SetCoord({randX,randY});
-            return;
+        try {
+            if(this->PlaceShip(ship, {randX, randY})){
+                ship->SetCoord({randX,randY});
+                return;
+            }
         }
-        j++;
-
-        if(j>100){
-            std::cout<<"The attempt to place the ship on the map failed"<<std::endl;
-            return;
+        catch (ShipPlacementException& e){
+            j++;
+            if (j >= 30){
+                throw UnableToPlaceShipsException();
+            }
+            continue;
         }
     }
 }
@@ -191,26 +194,16 @@ Coord Map::AttackRandom(){
     std::mt19937 gen(RD());
     std::uniform_int_distribution<> uidX(0, cols - 1);
     std::uniform_int_distribution<> uidY(0, rows - 1);
-    int j = 0;
     while(true){
         int randX=uidX(gen);
         int randY=uidY(gen);
-
-        try {
-            if(!this->CheckForCoord({randX,randY}) && this->Attack({randX,randY})){
-                return {randX,randY};
-            }
+        if (!this->CheckForCoord({randX,randY}) && this->Attack({randX, randY})){
+            return {randX, randY};
         }
-        
-        catch (RevealedPointAttackException& e) {
-            j++;
-            if (j>10000){
-                throw MultipleMissesException();
-            }
-            continue;
-        }
+       
     }
 }
+
 void Map::OpeningPoint(){
     for(auto& point: this->map) {
         point.owner = PointOwner::Revealed;
@@ -218,12 +211,12 @@ void Map::OpeningPoint(){
 }
 
 void Map::OpeningCoordsAround(Ship* ship){
-    for(auto& param: ship->getParams()){
+    for (int k = 0; k < ship->getLength(); k++){
         for(int i=-1; i<=1; i++){
             for(int j=-1; j<=1;j++){
-                if(!CheckForCoord({param->coord.x+i,param->coord.y+j})){
-                    Point& mappoint=this->map[this->cols*(param->coord.y+j)+param->coord.x+i];
-                    if(mappoint.state!=PointState::Empty){
+                if (!CheckForCoord({ship->getParams(k)->coord.x + i, ship->getParams(k)->coord.y + j})) {
+                    Point& mappoint = this->map[this->cols*(ship->getParams(k)->coord.y + j) + ship->getParams(k)->coord.x + i];
+                    if (mappoint.state != PointState::Empty) {
                         continue;
                     }
                     mappoint.state=PointState::Missed;
